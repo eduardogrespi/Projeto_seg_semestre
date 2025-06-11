@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tratamentos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="img/logo2.png" alt="Logo da Clínica Estética">
+      </div>
+      <h1>Clínica Estética - Mônica Barbosa</h1>
+      <nav>
+        <ul id="menu">
+          <li><a href="tratamentos.html">Tratamentos</a></li>
+          <li><a href="faleconosco.html">Fale Conosco</a></li>
+          <li><a href="compras.html">Carrinho de Compras</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="mensagem">
+    <h2>Conheça nossos tratamentos</h2>
+  </section>
+
+  <section class="tratamentos">
+    <div class="produto">
+      <h3>Limpeza de Pele</h3>
+      <button class="agendar-btn" onclick="abrirModal('Limpeza de Pele')">Agendar</button>
+    </div>
+    <div class="produto">
+      <h3>Depilação a Laser</h3>
+      <button class="agendar-btn" onclick="abrirModal('Depilação a Laser')">Agendar</button>
+    </div>
+    <div class="produto">
+      <h3>Massagem Relaxante</h3>
+      <button class="agendar-btn" onclick="abrirModal('Massagem Relaxante')">Agendar</button>
+    </div>
+    <div class="produto">
+      <h3>Aplicação de Botox</h3>
+      <button class="agendar-btn" onclick="abrirModal('Botox')">Agendar</button>
+    </div>
+    <div class="produto">
+      <h3>Bioestimuladores de Colágeno</h3>
+      <button class="agendar-btn" onclick="abrirModal('Colágeno')">Agendar</button>
+    </div>
+    <div class="produto">
+      <h3>Jato de Plasma</h3>
+      <button class="agendar-btn" onclick="abrirModal('Jato de Plasma')">Agendar</button>
+    </div>
+    <div class="produto">
+      <h3>Preenchimento Facial</h3>
+      <button class="agendar-btn" onclick="abrirModal('Preenchimento Facial')">Agendar</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <h2>Agendamento</h2>
+      <form action="/agendar-tratamento" method="POST">
+        <div class="form-group">
+          <label for="tratamentoSelecionado">Tratamento</label>
+          <input type="text" class="form-control" id="tratamentoSelecionado" name="tratamento" readonly>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" name="nome" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputTelefone">Telefone</label>
+            <input type="text" class="form-control" id="inputTelefone" name="telefone" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputData">Data do Agendamento</label>
+            <input type="date" class="form-control" id="inputData" name="data_agendamento" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirmar Agendamento</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Clínica Estética Mônica Barbosa - Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    function abrirModal(tratamento) {
+      document.getElementById('formModal').style.display = 'block';
+      document.getElementById('tratamentoSelecionado').value = tratamento;
+    }
+
+    function fecharModal() {
+      document.getElementById('formModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('formModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
