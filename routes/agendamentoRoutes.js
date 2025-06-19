@@ -1,8 +1,8 @@
-// routes/agendamentoRoutes.js
 const express = require('express');
 const router = express.Router();
 const agendamentoController = require('../controllers/agendamentoController');
 
-router.post('/agendar-tratamento', agendamentoController.agendar);
+// Rota para processar o formulário de agendamento
+router.post('/', agendamentoController.agendar);
 
 module.exports = router;
