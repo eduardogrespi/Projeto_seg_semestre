@@ -14,3 +14,8 @@ CREATE TABLE agendamentos (
 
 ALTER TABLE agendamentos 
 ADD COLUMN tratamento VARCHAR(100) AFTER telefone;
+
+select * from agendamentos;
+
+show tables;
+
